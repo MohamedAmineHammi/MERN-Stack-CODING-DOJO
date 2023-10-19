@@ -1,4 +1,4 @@
-# MERN-Stack-CODING-DOJO
+# JavaScript - - MERN
 
 <img src="https://github.com/MohamedAmineHammi/Web-Fundamentals-CODING-DOJO/blob/main/Coding%20Dojo%20Logo.png" width="400" height="100">
 <img src="https://github.com/MohamedAmineHammi/MERN-Stack-CODING-DOJO/blob/main/MERN%20Logo.png" width="300" height="100">
