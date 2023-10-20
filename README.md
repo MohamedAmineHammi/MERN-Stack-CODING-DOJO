@@ -5,4 +5,4 @@
 
 ###### MERN is a user-friendly full-stack JavaScript framework ideal for building dynamic websites and applications. It is a free and open-source stack designed to supply developers with a quick and organized method for creating rapid prototypes of MERN-based web applications. One of the main benefits of the MERN stack is that a single language, JavaScript, runs on every level of the application, making it an efficient and modern approach to web development.
 ## Programming & Tools :
-<img src="https://github.com/MohamedAmineHammi/MERN-Stack-CODING-DOJO/blob/main/MERN%20Stack.png" width="600" height="400">
+<img src="https://github.com/MohamedAmineHammi/MERN-Stack-CODING-DOJO/blob/main/MERN%20Stack.png" width="900" height="350">
