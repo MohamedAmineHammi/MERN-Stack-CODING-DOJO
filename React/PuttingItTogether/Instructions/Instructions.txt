@@ -1,0 +1,10 @@
+Putting it Together
+Using the same assignment as the Prop It Up assignment, create a birthday button that will increase one person's age by one.
+
+
+1/Create a state variable to hold the age of the person (passed in via the props object)
+
+2/Create a button that increases the person's age by 1 year each time it is clicked
+
+3/Display the current value of age from state (not the original value from the props object)
+
