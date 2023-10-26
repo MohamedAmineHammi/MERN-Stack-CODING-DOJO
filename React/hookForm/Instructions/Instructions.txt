@@ -1,0 +1,9 @@
+Hook Form
+Create a form like the following wireframe with a single React Component called "Form" and hooks. Then, show in real time, the data that is being inputted into the form below.
+
+It is not required to match the CSS to complete this assignment.
+
+
+1/Create form inputs with First Name, Last Name, Email, Password and Confirm Password fields
+
+2/Display, in real time, the form data that is being typed in below the form
