@@ -1,0 +1,131 @@
+These five lines are entered separately into postman using the http verb get.
+
+https://pokeapi.co/api/v2/pokemon/ditto
+
+https://pokeapi.co/api/v2/pokemon/pikachu
+
+https://pokeapi.co/api/v2/pokemon/charmander
+
+https://pokeapi.co/api/v2/pokemon/geodude
+
+https://pokeapi.co/api/v2/pokemon/mew
+
+
+
+
+Your Responses should look like a longer version of this (shortened for brevity):
+Ditto:
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "limber",
+                "url": "https://pokeapi.co/api/v2/ability/7/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "imposter",
+                "url": "https://pokeapi.co/api/v2/ability/150/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+
+
+
+Pikachu:
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "static",
+                "url": "https://pokeapi.co/api/v2/ability/9/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "lightning-rod",
+                "url": "https://pokeapi.co/api/v2/ability/31/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+
+
+
+Charmander:
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "blaze",
+                "url": "https://pokeapi.co/api/v2/ability/66/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "solar-power",
+                "url": "https://pokeapi.co/api/v2/ability/94/"
+            },
+            "is_hidden": true,
+            "slot": 3
+        }
+    ],
+
+
+Geodude:
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "rock-head",
+                "url": "https://pokeapi.co/api/v2/ability/69/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        },
+        {
+            "ability": {
+                "name": "sturdy",
+                "url": "https://pokeapi.co/api/v2/ability/5/"
+            },
+            "is_hidden": false,
+            "slot": 2
+        },
+
+
+Mew:
+{
+    "abilities": [
+        {
+            "ability": {
+                "name": "synchronize",
+                "url": "https://pokeapi.co/api/v2/ability/28/"
+            },
+            "is_hidden": false,
+            "slot": 1
+        }
+    ],
+    "base_experience": 270,
+    "forms": [
+        {
+            "name": "mew",
+            "url": "https://pokeapi.co/api/v2/pokemon-form/151/"
+        }
+    ],
+    "game_indices": [
+        {
+            "game_index": 21,
+            "version": {
+                "name": "red",
+                "url": "https://pokeapi.co/api/v2/version/1/"
+            }
