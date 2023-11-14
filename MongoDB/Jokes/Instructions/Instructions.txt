@@ -1,0 +1,58 @@
+Jokes API
+To solidify what we've read about mongoose commands and express, lets create a new express project from scratch called "Jokes."
+
+The following wireframe is to show examples of routes (full URLs) and then the returned json.  You are NOT required to create a front end for this assignment.  Please use Postman to verify your routes and output.
+
+You will need to include the following routes:
+
+Route                 VERB     Description
+
+/api/jokes           GET       get all jokes
+
+/api/jokes           POST     create a new joke
+
+/api/jokes/:_id   GET        return a single joke matching this _id
+
+/api/jokes/:_id   PUT        update a single joke matching this _id
+
+/api/jokes/:_id   DELETE  delete a single joke matching this _id
+
+
+
+
+
+
+1/Create a project folder named "Jokes"
+
+2/within "Jokes" create a modularized folder structure (server ==> controllers, routes, models, config, server.js)
+
+3/initialize a package json file using npm
+
+4/npm install mongoose express
+
+5/create a mongoose.config.js file and setup your mongoose.connect function
+
+6/create a jokes.model.js, jokes.controller.js, and a jokes.routes.js in the applicable folders
+
+7/in the jokes.model file create and JokeSchema and export the mongoose.model("joke", JokeSchema)
+
+8/in the jokes.controller import your model from the models file
+
+9/Export a function to get all jokes
+
+10/Export a function to get a single joke
+
+11/Export a function to create a joke
+
+12/Export a function to update a joke
+
+13/Export a function to delete a joke
+
+14/in the jokes.routes file: import * from your controller file and add an express route for every route listed in the wireframe
+
+15/In your server.js file: setup express, import your joke routes, and run your server
+
+16/Use Postman to create new jokes and use the browser to view them
+
+17/Use Postman to perform the POST DELETE and PUT operations and use the browser to GET them
+
