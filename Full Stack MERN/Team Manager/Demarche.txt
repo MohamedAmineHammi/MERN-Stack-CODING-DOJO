@@ -1,0 +1,233 @@
+------------------------ to create server
+mkdir server
+cd server/
+touch server.js
+npm init -y
+npm install mongoose express
+npm install cors
+mkdir config controller models routes
+touch .gitignore
+nodemon server.js
+
+cd config/
+touch mongoose.config.js
+cd ..
+
+cd controller/
+touch xxxxx.controller.js
+cd.. 
+
+cd models
+touch xxxxx.model.js
+cd ..
+
+cd routes
+touch xxxxx.routes.js
+cd..
+
+cd..
+npx create-react-app client
+npm install react-router-dom
+npm i  axios
+npm install cors
+
+
+
+
+
+=============================== server.js
+
+const express = require("express")         // import express
+const app = express()                     // declar app
+const cors = require("cors")              // import middelwere to connect tow server 
+const PORT = 8000                        // porte how server youse
+const DB_NAME = "xxxxx"                      // declart data base
+
+// middelware
+app.use(cors());
+app.use(express.json(), express.urlencoded({ extended: true }));
+
+// Connect to the DB ---------
+require("./config/mongoose.config")(DB_NAME)
+
+// import the toutes ---
+require("./routes/xxxx.routes")(app)
+
+// ----------------------------------------------------------------------
+app.listen(PORT, () => { console.log(`Server started on PORT ${PORT} 🚀🚀`) })
+
+
+
+
+
+=================================  mongoose.config.js
+
+const mongoose = require("mongoose");   // import mongoose
+
+
+module.exports = (DB_NAME) => {   // to export  to here from server
+
+    mongoose.connect(`mongodb://localhost/${DB_NAME}`)                                              // connect to data base
+        .then(() => { console.log(`Established a connection to the database ${DB_NAME} 🏁🏁`) })  //  if server connect 
+        .catch((err) => { console.log(`There was a problem connecting to ${DB_NAME}`) })           // if data dase not conncet consol log the err 
+}
+
+
+
+================================= xxxxx.model.js
+
+//1. import mongoose 
+const mongoose = require("mongoose")
+
+//2. create a schema ------------------------------------------- 
+const XxxxSchema = new mongoose.Schema({
+                                        title : {   type : String,
+                                                    minlength:[3,"{PATH} must have at least 3 chars, but you entered {VALUE} "],
+                                                    equired : [true, 'Name is required']
+                                                },
+                                        Content : {    type : String,
+                                                        required: true,
+                                                        minlength:[5,"{PATH} must have at least 5 chars, but you entered {VALUE}"],
+                                                    },
+                                        nb_match : {    type : Number,
+                                                        required: true,
+                                                        min:[0,"{PATH} must be positif Number {VALUE}"],
+                                                    },
+                                        is_Impotant :{
+                                                        type: Boolean,
+                                                        default: false
+                                                    }
+                                                },{timestamps: true} )
+//3 . create instant of schema ----------------------------------
+const Xxxx = mongoose.model("Xxxx" , XxxxSchema);
+//4. export schema ----------------------------------------------
+module.exports = Xxxx;
+
+
+
+==================================== xxxxx.controller.js
+
+// CRUD operation 
+// imprta models
+const Xxxx =require("../models/xxxx.model")
+
+//============================ bild function ------all this function is a promess so evry one need .then and .catch 
+
+
+// bild function to get all --------------------------------
+module.exports.findAllxxxx = (request, respense) =>{
+    Xxxx.find()
+    .then((allXxxx)=>{ 
+        respense.json(allXxxx) }) // array of object  i can use just objet and sand other parameter   respense.json({allXxxx , status :"ok" })
+    .catch((err)=>{ 
+        respense.json({message :"something wnt wrong" , serverError : err})})
+
+}
+
+// bild function to get one by id --------------------------------
+module.exports.findOneById = (request, respense) =>{
+    Xxxx.findById({_id : request.params._id})
+    .then((OneXxxx)=>{ 
+        respense.json(OneXxxx) }) // array of object  i can use just objet and sand other parameter   respense.json({OneXxxx , status :"ok" })
+    .catch((err)=>{ 
+        respense.json({message :"something wnt wrong" , serverError : err})})
+}
+
+// bild function to create new Xxxx --------------------------------
+module.exports.CreateXxxx = (request, respense) =>{
+    Xxxx.create(request.body)
+    .then((NewXxxx)=>{ 
+        respense.json({NewXxxx})}) // array of object  i can use just objet and sand other parameter   respense.json({NewXxxx: Xxxx })
+    .catch((err)=>{ 
+        respense.json({message :"something wnt wrong" , serverError : err})})
+}
+
+// bild function to update Xxxx ----------------------------------
+module.exports.updateXxxx = (request, res) => {
+    Xxxx.findByIdAndUpdate(
+        { _id: request.params._id },
+        request.body,
+        { new: true, runValidators: true }
+    )
+        .then(upXxxx => res.json(upXxxx ))
+        .catch(err => res.json({ message: 'Something went wrong update Xxxx', error: err }));
+}
+
+// bild function to delete Xxxx ----------------------------------
+module.exports.deleteXxxx = (request, res) => {
+    Xxxx.findByIdAndDelete({ _id: request.params._id })
+        .then(delXxxx => res.json(delXxxx ))
+        .catch(err => res.json({ message: 'Something went wrong', error: err }));
+}
+
+
+====================================================== xxxx.routes.js
+
+// import the controller 
+const XxxxController = require("../controller/xxxxs.controller")
+
+// =============================creat routs
+
+module.exports =(app)=>{ //  we should be group all routes 
+    // create route for get all 
+    app.get("/api/xxxxs", XxxxController.findAllxxxx) // ok
+    
+    // create route for get one by id
+    app.get("/api/xxxxs/:_id", XxxxController.findOneById);// ok
+    
+    
+    // create route to add one
+    app.post("/api/xxxx", XxxxController.CreateXxxx); //ok
+
+    // create route to update one
+    app.put("/api/xxxxs/:_id", XxxxController.updateXxxx);//ok
+
+    // create route to delete one
+    app.delete("/api/xxxxs/:_id", XxxxController.deleteXxxx);//ok
+} 
+
+
+====================================================================================================================================
+====================================================================================================================================
+---------------------------------------------------------------------  client ------------------------------------------------------
+====================================================================================================================================
+npx create-react-app client
+npm install react-router-dom
+npm i axios
+
+------------------------------------- index.js
+
+import { BrowserRouter } from 'react-router-dom';
+
+<React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+
+
+------------------------ app.js
+
+
+        <Link to={"/notes/"}>Home</Link>
+         <Link to={"/create"}>Create</Link>
+        
+        <Routes>
+          <Route path="/" element={< />}/> 
+          <Route path="/" element={< />}/>
+          <Route path="" element={< />}/>
+          <Route path="" element={< />}/>
+        </Routes>
+      
+
+
+
+
+
+
+
+
+
+
+
+
